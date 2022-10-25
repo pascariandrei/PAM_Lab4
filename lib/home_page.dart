@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/home_controller.dart';
 import 'package:flutter_shop/resources/colors.dart';
+import 'package:flutter_shop/resources/svg_assets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'home_page/widgets/category_widget.dart';
 import 'home_page/widgets/sections_title.dart';
@@ -72,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           title: homeController.products[index].title,
                           subtitle: homeController.products[index].subtitle,
                           price: homeController.products[index].price,
-                          currency: homeController.products[index].currency),
+                          currency: homeController.products[index].currency, icon: SvgAssets.star,),
                       childCount: homeController.products.length),
                 ),
               ),
