@@ -10,10 +10,9 @@ class HomeController extends GetxController {
   RxList<Categories> categories = RxList();
 
   Future<void> loadProducts() async {
-    final readJson = await rootBundle.loadString('assets/json/shop.json');
-    final jsonResponse = await json.decode(readJson);
-    products.value = (jsonResponse['products'] as List).map((value) => Products.fromJson(value)).toList();
-    categories.value = (jsonResponse['categories'] as List).map((value) => Categories.fromJson(value)).toList();
-
+      final readJson = await rootBundle.loadString('assets/json/shop.json');
+      final jsonResponse = await json.decode(readJson);
+      products.value = (jsonResponse['products'] as List).map((value) => Products.fromJson(value)).toList();
+      categories.value = (jsonResponse['categories'] as List).map((value) => Categories.fromJson(value)).toList();
   }
 }

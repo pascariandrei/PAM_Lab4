@@ -7,29 +7,30 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import '../../controllers/home_controller.dart';
 import '../../resources/text_style.dart';
 
-class ProductTitleWidget extends StatelessWidget {
-  const ProductTitleWidget({Key? key}) : super(key: key);
+class SectionsTitleWidget extends StatelessWidget {
+  const SectionsTitleWidget({super.key, required this.left_title,required this.right_title})  ;
+
+  final left_title;
+  final right_title;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, top: 48, right: 16, bottom: 28),
+      padding: const EdgeInsets.only(left: 16, right: 16),
       child: Container(
         child: Row(
           children: [
             Text(
-              "Best Selling",
+              "$left_title",
               style: TextStyles.SFProText18.copyWith(
                   color: CustomColor.black, height: 1.33, fontWeight: FontWeight.w700),
             ),
             Spacer(),
             Text(
-              "See all",
+              "$right_title",
               style: TextStyles.SFProText18.copyWith(
                   color: CustomColor.black, height: 1.33, fontWeight: FontWeight.w400),
             ),
-
-
           ],
         ),
       ),
