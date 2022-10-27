@@ -1,0 +1,148 @@
+{
+  "count": 23,
+  "total_pages": 3,
+  "per_page": 10,
+  "current_page": 1,
+  "results": [
+    {
+      "category": {
+        "name": "Electronics",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/c5bfbd2e1d35f4cdfe581c1afea650d5.png",
+        "id": 7
+      },
+      "name": "Cubot KingKong MINI2 Rugged Phone 4",
+      "details": "We are Cubot Official Store & guarantee that all items are 100% original and manufacturer authorized.\r\nPlease read here carefully before purchasing, in order to protect your benefits.\r\nThe first thing after you receive the parcel, pls check the outside package condition as well as the inside goods , Try to take a video showing about you unpack the package. If there is any further problem, that will play an important role.\r\n\r\nBasic Information\t\r\n- Model: Cubot KINGKONG MINI2\r\n- Band: GSM 850/900/1800/1900MHz\r\n\r\nWCDMA  900/2100MHZ\r\n\r\nFDD  B1/3/7/8/19/20\r\n- Sim Card: Dual Nano SIM Card \r\n- Color: Orange-black  / Red-black\r\n- Battery: 3000mAh    \r\n- Battery type: undetachable  battery\r\n\r\nSystem\t\r\n- OS: Android10.0\r\n- CPU: MT6761 (Quad Core)\r\n- ROM: 32G\r\n- RAM: 3G\r\n- Card Extend：Support TF card up to 128GB extended\r\n\r\nScreen\t\r\n- Display Size：4.0Inch,QHD+\r\n- Resolution： 540*1080(QHD+)\r\n\r\nGeneral \t\r\n- Camera/Picture Resolution：Dual Cameras, front camera 8.0MP camera, back camera 13.0MP with 1A LED flashlight \t\r\n- Language：\"Japanese,Traditional/Simplified Chinese,Bahasa Indonesia, Bahasa Melayu, Catala, Cestina, Dansk, Deutsch,English, Espanol,Filipino,France, Hrvatski, Italiano,Magyar, Nederlands, Polski, Portugues, Romana, Slovenscina, Suomi, Svenska, Vietnamese, Turkish, Greek, Bulgarian, Russian, Serbian, Ukrainian, Hebrew, Arabic,  Hindi, Bengali, HindiThai, Korean,\"\r\n\r\n- GPS：\"Yes,built in. also support A-GPS\"\r\n- Sensor：\"Face ID ,Proximity, Accelerometer, Magnetic , gyroscope , Others(Light sensor) \"\r\n- Dimensions: 119*58*12.5mm\r\n- Net Weight(Including battery): 122.70g\r\n\r\nPackage:\r\n-Accessories: \r\n1x Cubot KingKong MINI2 smartphone\r\n1x USB Cable\r\n1 x Charger    5V1A\r\n1 x Screwdriver\r\n1 x User Manual\r\n\r\nProduct type: Smartphones",
+      "size": "- Display Size：4.0Inch,QHD+ - Resolution： 540*1080",
+      "colour": "BLACK",
+      "price": 1710.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 2
+    },
+    {
+      "category": {
+        "name": "Home & Kitchen",
+        "icon": "https://static.wixstatic.com/media/2cd43b_dd8a9bb315c146789cfbd614e0673c2b~mv2.png/v1/fill/w_321,h_254,q_90/2cd43b_dd8a9bb315c146789cfbd614e0673c2b~mv2.png",
+        "id": 4
+      },
+      "name": "Dopio Coffee",
+      "details": "Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee Dopio Coffee",
+      "size": "LARGE (450 mm)",
+      "colour": "Dark Blue",
+      "price": 980.0,
+      "main_image": "https://img.joomcdn.net/44573d9644cde30bc50060a612733750fad4990b_1024_1024.jpeg",
+      "id": 4
+    },
+    {
+      "category": {
+        "name": "Health & Beauty",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/7aeb3bad22e90737dd601559305ea9b9.png",
+        "id": 3
+      },
+      "name": "Health",
+      "details": "Detailed health",
+      "size": "Small",
+      "colour": "Blue",
+      "price": 660.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 6
+    },
+    {
+      "category": {
+        "name": "Home & Kitchen",
+        "icon": "https://static.wixstatic.com/media/2cd43b_dd8a9bb315c146789cfbd614e0673c2b~mv2.png/v1/fill/w_321,h_254,q_90/2cd43b_dd8a9bb315c146789cfbd614e0673c2b~mv2.png",
+        "id": 4
+      },
+      "name": "Kitchen",
+      "details": "Detailed kitchen",
+      "size": "Kitchen",
+      "colour": "White",
+      "price": 2500.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 7
+    },
+    {
+      "category": {
+        "name": "Electronics",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/c5bfbd2e1d35f4cdfe581c1afea650d5.png",
+        "id": 7
+      },
+      "name": "Eights",
+      "details": "Two connected circles",
+      "size": "8",
+      "colour": "Black",
+      "price": 888.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 9
+    },
+    {
+      "category": {
+        "name": "Home & Kitchen",
+        "icon": "https://static.wixstatic.com/media/2cd43b_dd8a9bb315c146789cfbd614e0673c2b~mv2.png/v1/fill/w_321,h_254,q_90/2cd43b_dd8a9bb315c146789cfbd614e0673c2b~mv2.png",
+        "id": 4
+      },
+      "name": "House",
+      "details": "Big house",
+      "size": "Big",
+      "colour": "White",
+      "price": 15000.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 11
+    },
+    {
+      "category": {
+        "name": "Men's Clothing & Accessories",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/7140b43f7d4c3587a76f20b01aec81c1.png",
+        "id": 6
+      },
+      "name": "Glasses",
+      "details": "Cool glasses",
+      "size": "Normal",
+      "colour": "Black",
+      "price": 100.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 12
+    },
+    {
+      "category": {
+        "name": "Hobby, Sport, Traveling",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/8edecebf5cbde4f68e545d2007f81e7b.png",
+        "id": 5
+      },
+      "name": "Ball",
+      "details": "For volley",
+      "size": "For volley",
+      "colour": "Yellow",
+      "price": 20.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 13
+    },
+    {
+      "category": {
+        "name": "Electronics",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/c5bfbd2e1d35f4cdfe581c1afea650d5.png",
+        "id": 7
+      },
+      "name": "Utraphone",
+      "details": "Ultradesc",
+      "size": "Huge",
+      "colour": "Ye",
+      "price": 500.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 14
+    },
+    {
+      "category": {
+        "name": "Health & Beauty",
+        "icon": "https://kupatana.com/api/v1/filestorage/image/medium/7aeb3bad22e90737dd601559305ea9b9.png",
+        "id": 3
+      },
+      "name": "Pomada",
+      "details": "Krasnaia pomada",
+      "size": "Pomada size",
+      "colour": "Red",
+      "price": 20.0,
+      "main_image": "https://img.joomcdn.net/077bbe2ce1543f1cbd0a7201dec19a54d0e58233_original.jpeg",
+      "id": 15
+    }
+  ]
+}

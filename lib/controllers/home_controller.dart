@@ -9,6 +9,8 @@ class HomeController extends GetxController {
   RxList<Products> products = RxList();
   RxList<Categories> categories = RxList();
 
+  static const _pageSize = 5;
+
   Future<void> loadProducts() async {
       final readJson = await rootBundle.loadString('assets/json/shop.json');
       final jsonResponse = await json.decode(readJson);
