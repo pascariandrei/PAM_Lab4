@@ -1,5 +1,3 @@
-import 'package:flutter_shop/models/categories.dart';
-
 import 'api_categories.dart';
 
 class Results {
@@ -8,7 +6,7 @@ class Results {
   final String size;
   final String colour;
   final double price;
-  final String mainimage;
+  final String mainImage;
   final int id;
    Category category;
 
@@ -19,7 +17,7 @@ class Results {
     required this.size,
     required this.colour,
     required this.price,
-    required this.mainimage,
+    required this.mainImage,
     required this.id,
     required this.category,
   });
@@ -30,7 +28,7 @@ class Results {
       size:json["size"],
       colour:json["colour"],
       price:json["price"],
-      mainimage:json["main_image"],
+      mainImage:json["main_image"],
       id: json["id"],
      category: Category.fromJson(json["category"]),
 

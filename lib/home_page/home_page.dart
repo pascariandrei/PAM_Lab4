@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shop/controllers/home_controller.dart';
 import 'package:flutter_shop/resources/colors.dart';
 import 'package:flutter_shop/resources/svg_assets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'controllers/api_controller.dart';
-import 'home_page/widgets/category_widget.dart';
-import 'home_page/widgets/sections_title.dart';
-import 'home_page/widgets/product_widget.dart';
-import 'package:http/http.dart' as http;
+import '../controllers/api_controller.dart';
+import 'widgets/category_widget.dart';
+import 'widgets/sections_title.dart';
+import 'widgets/product_widget.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -18,6 +17,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final scrollController = ScrollController();
+  List prod = [];
+  bool isLoadingMore = false;
+
   @override
   void initState() {
     Get.put(HomeController());
@@ -29,16 +32,23 @@ class _MyHomePageState extends State<MyHomePage> {
     apiController.apiRead();
 
     super.initState();
+    scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final HomeController homeController = Get.find();
     final ApiController apiController = Get.find();
     return Scaffold(
       body: Container(
         color: CustomColor.whiteSmoke,
         child: CustomScrollView(
+          controller: scrollController,
           slivers: [
             SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
@@ -75,31 +85,65 @@ class _MyHomePageState extends State<MyHomePage> {
                     //mainAxisExtent:0,
                   ),
                   delegate: SliverChildBuilderDelegate(
-                      (context, index) => ProductWidget(
-                            /*img: homeController.products[index].cover,
-                            // img: apicontroller.stringResp.toString(),
-                            title: apiController.apiProducts[index].price,
-                            //title: homeController.products[index].title,
-                            subtitle: homeController.products[index].subtitle,
-                            price: homeController.products[index].price,
-                            currency: homeController.products[index].currency,
-                            icon: SvgAssets.star,*/
-                            img: apiController.apiProducts[index].mainimage,
-                            // img: apicontroller.stringResp.toString(),
-                            title: apiController.apiProducts[index].category.name,
-                            //title: homeController.products[index].title,
-                            subtitle:apiController.apiProducts[index].details,
-                            price:apiController.apiProducts[index].price,
-                            currency: apiController.apiProducts[index].id,
-                            icon: SvgAssets.star,
-                          ),
-                      childCount: apiController.apiProducts.length),
+                    (context, index) {
+                     // if (index != (apiController.products.length)) {
+                        return ProductWidget(
+                          title: apiController.products[index].name,
+                          img: apiController.products[index].mainImage,
+                          subtitle: apiController.products[index].details,
+                          price: apiController.products[index].id,
+                          currency: apiController.products[index].name,
+                          icon: SvgAssets.star,
+                        );
+                     // }
+                    },
+                    childCount:apiController.products.length
+                          ,
+                    /*childCount: apiController.isLoadMore.value
+                        ? (apiController.products.length + 1)
+                        : (apiController.products.length),*/
+                  ),
                 ),
-              ),
-            ),
+              )),Obx(() =>  SliverToBoxAdapter(
+
+              //   if(apiController.products.length ){
+
+                child: apiController.isLoadMore.value  ? const Center(
+                  child: SizedBox(
+                    //color: Colors.green,
+                    height: 100,
+                    width: 100,
+                    child: SizedBox(child: CircularProgressIndicator(
+
+                    )),
+                  ),
+                ) : const SizedBox(
+                  child: SizedBox(
+                    height: 50,
+                    width: 50,
+                  ),
+                )
+              // }
+            ),),
+
+
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _scrollListener() async {
+
+    final ApiController apiController = Get.find();
+    if (scrollController.position.pixels ==
+        scrollController.position.maxScrollExtent && !apiController.isLoadMore.value) {
+
+        await apiController.apiRead();
+
+
+
+
+    }
   }
 }
