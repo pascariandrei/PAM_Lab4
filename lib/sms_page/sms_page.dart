@@ -60,7 +60,7 @@ class _SmsPageState extends State<SmsPage> {
             const SizedBox(
               height: 44,
             ),
-            const ButtonWidget(btnText: "CONFIRM ACCOUNT",),
+            const ButtonWidget(text: "CONFIRM ACCOUNT",),
             const SizedBox(
               height: 16,
             ),

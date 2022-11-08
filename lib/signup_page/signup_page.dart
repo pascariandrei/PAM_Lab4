@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/login_page/login_page.dart';
 import 'package:flutter_shop/login_page/widgets/button_widget.dart';
 import 'package:flutter_shop/login_page/widgets/input_widget.dart';
+import 'package:flutter_shop/login_page/widgets/see_pswd_icon.dart';
 import 'package:flutter_shop/login_page/widgets/title_widget.dart';
 import 'package:flutter_shop/models/registration_post.dart';
 import 'package:flutter_shop/resources/colors.dart';
 import 'package:flutter_shop/resources/svg_assets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
+import 'package:email_validator/email_validator.dart';
 import '../controllers/register_controller.dart';
 import '../resources/text_style.dart';
 import '../terms_page/terms_page.dart';
@@ -18,6 +20,7 @@ class SignUpPage extends StatefulWidget {
   @override
   State<SignUpPage> createState() => _ForgotPswPageState();
 }
+
 final _form = GlobalKey<FormState>();
 bool isChecked = false;
 bool _passwordVisible = false;
@@ -33,9 +36,7 @@ void initState() {
   _repeatpasswordVisible = false;
 }
 
-
- class _ForgotPswPageState extends State<SignUpPage> {
-
+class _ForgotPswPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final RegController regController = Get.find();
@@ -80,98 +81,110 @@ void initState() {
             const SizedBox(
               height: 28,
             ),
-              //InputWidget(hintText: "Full Name",textController:regController.fullnameController),
+            //InputWidget(hintText: "Full Name",textController:regController.fullnameController),
             Form(
               key: _form,
-              child: SizedBox(
-                height: 44,
-                child:  TextFormField(
-                  controller: regController.fullnameController,
-                  enableSuggestions: false,
-                  autocorrect: false,
-                  validator: (check) {
-                    if (check?.isEmpty == true   ) {
-                      return "Enter valid name of more then 5 characters!";
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-
-                   // errorText: widget.error,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1, color: CustomColor.graywhite ),
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    focusedBorder:OutlineInputBorder(
-                      borderSide: BorderSide(width: 1, color: CustomColor.gray),
-                      borderRadius: BorderRadius.circular(4.0),
-                    ),
-                    hintText: "FullName",
-                    contentPadding: const EdgeInsets.symmetric( horizontal: 16),
-
+              child: Column(
+                children: [
+                  InputWidget(
+                    hintText: "Full Name",
+                    textController: regController.fullnameController,
+                    validate: (check) {
+                      if (check?.isEmpty == true) {
+                        return "This Field is Empty!";
+                      }
+                      return null;
+                    },
                   ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-              InputWidget(hintText: "Email",textController:regController.emailController),
-              SizedBox(
-              height: 16,
-            ),
-              InputWidget(hintText: "Phone",textController:regController.phonenumController),
-            const SizedBox(
-              height: 16,
-            ),
-            Stack(children: [
-              InputWidget(hintText: "Password", isPassword:!_passwordVisible,textController:regController.passwordController,),
-              Positioned(
-                top: 15,
-                right: 10.46,
-                bottom: 15,
-                child: SizedBox(
-                  width: 28,
-                  height: 49,
-                  child: RawMaterialButton(
-                      onPressed: () {
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputWidget(
+                    hintText: "Email",
+                    textController: regController.emailController,
+                    validate: (check) {
+                      if (check?.isEmpty == true) {
+                        return "This Field is Empty!";
+                      } else if (regController.emailController.text
+                              .contains(".") &&
+                          regController.emailController.text.contains("@")) {
+                        return null;
+                      } else {
+                        return "Incorect Email";
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  InputWidget(
+                    hintText: "Phone",
+                    textController: regController.phonenumController,
+                    validate: (check) {
+                      if (check?.isEmpty == true) {
+                        return "This Field is Empty!";
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Stack(children: [
+                    //InputWidget(hintText: "Password", isPassword:!_passwordVisible,textController:regController.passwordController,),
+                    InputWidget(
+                      hintText: "Password",
+                      isPassword: !_passwordVisible,
+                      textController: regController.passwordController,
+                      validate: (check) {
+                        if (check?.isEmpty == true) {
+                          return "This Field is Empty!";
+                        }
+                        return null;
+                      },
+                    ),
+                    SeePswdWidget(
+                      see: () {
                         setState(() {
                           _passwordVisible = !_passwordVisible;
                         });
                       },
-                      child: Center(
-                        child: SvgAssets.seePswd,
-                      )),
-                ),
-              ),
-            ]),
-            const SizedBox(
-              height: 16,
-            ),
-            Stack(children: [
-              InputWidget(hintText: "Repeat Password", isPassword:!_repeatpasswordVisible,textController:regController.repeatpasswordController),
-              Positioned(
-                top: 15,
-                right: 10.46,
-                bottom: 15,
-                child: SizedBox(
-                  width: 28,
-                  height: 49,
-                  child: RawMaterialButton(
-                      onPressed: () {
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Stack(children: [
+                    InputWidget(
+                      hintText: "Repeat Password",
+                      isPassword: !_repeatpasswordVisible,
+                      textController: regController.repeatpasswordController,
+                      validate: (check) {
+                        if (check?.isEmpty == true) {
+                          return "This Field is Empty!";
+                        } else if (regController
+                                .repeatpasswordController.text !=
+                            regController.passwordController.text) {
+                          return "Passwords don't match!";
+                        }
+                        return null;
+                      },
+                    ),
+                    SeePswdWidget(
+                      see: () {
                         setState(() {
                           _repeatpasswordVisible = !_repeatpasswordVisible;
                         });
                       },
-                      child: Center(
-                        child: SvgAssets.seePswd,
-                      )),
-                ),
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                ],
               ),
-            ]),
-            const SizedBox(
-              height: 22,
             ),
+
             SizedBox(
               height: 24,
               child: Center(
@@ -217,8 +230,8 @@ void initState() {
               height: 48,
             ),
             /*ButtonWidget(
-              btnText: "REGISTRATION",
-              test: (){print(emailController.text);},
+              btnText: "test",
+              onpress:   (){regController.Register();_saveForm();},
             ),*/
             SizedBox(
               height: 52,
@@ -228,7 +241,11 @@ void initState() {
                   ),
                   fillColor: CustomColor.green,
                   // onPressed: () {_navigateToHomePage(context);},
-                  onPressed: (){regController.SaveProducts();_saveForm();},
+                  onPressed: () {
+                    regController.Register();
+                    _saveForm();
+                    !regController.isRegistered && isChecked ?  _navigateToHomePage(context) : print("error");
+                  },
                   child: Center(
                     child: Text(
                       "REGISTRATION",
@@ -248,7 +265,11 @@ void initState() {
   void _navigateToTermsPage(BuildContext context) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const TermsPage()));
+  }void _navigateToHomePage(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const LoginWidget()));
   }
+
   void _saveForm() {
     final isValid = _form.currentState?.validate();
     if (!isValid!) {

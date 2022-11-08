@@ -6,13 +6,14 @@ import '../../resources/svg_assets.dart';
 class SeePswdWidget extends StatefulWidget {
    SeePswdWidget({required this.see}) ;
 
-late final bool see;
+  final void Function() see;
 
   @override
   State<SeePswdWidget> createState() => _SeePswdWidgetState();
 }
 
 class _SeePswdWidgetState extends State<SeePswdWidget> {
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -24,9 +25,7 @@ class _SeePswdWidgetState extends State<SeePswdWidget> {
         height: 49,
         child: RawMaterialButton(
             onPressed: () {
-             setState(() {
-               widget.see = !widget.see;
-             });
+             setState( widget.see);
             },
             child: Center(
               child: SvgAssets.seePswd,

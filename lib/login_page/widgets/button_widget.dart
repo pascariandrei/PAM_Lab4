@@ -6,12 +6,17 @@ import 'package:flutter_shop/resources/svg_assets.dart';
 
 import '../../resources/text_style.dart';
 
-class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({required this.btnText,   this.test}) ;
+class ButtonWidget extends StatefulWidget {
+  const ButtonWidget({required this.text, this.onPress});
 
-  final btnText;
-  final Function? test;
+  final String text;
+  final Function()? onPress;
 
+  @override
+  State<ButtonWidget> createState() => _ButtonWidgetState();
+}
+
+class _ButtonWidgetState extends State<ButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,12 +27,10 @@ class ButtonWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(4.0),
             ),
             fillColor: CustomColor.green,
-            onPressed: () {
-               test;
-            },
+            onPressed: widget.onPress,
             child: Center(
               child: Text(
-                "$btnText",
+                "${widget.text}",
                 style: TextStyles.SFProText14.copyWith(
                     color: CustomColor.whiteSolid,
                     height: 1.71,

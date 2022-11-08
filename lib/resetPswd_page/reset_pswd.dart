@@ -119,7 +119,7 @@ class _ForgotPswPageState extends State<ResetPswd> {
               height: 44,
             ),
             const ButtonWidget(
-              btnText: "SUBMIT CHANGES",
+              text: "SUBMIT CHANGES",
             ),
           ],
         ),

@@ -60,7 +60,7 @@ class _ForgotPswPageState extends State<ForgotPswPage> {
             const SizedBox(
               height: 44,
             ),
-            const ButtonWidget(btnText: "SEND REQUEST",),
+            const ButtonWidget(text: "SEND REQUEST"),
           ],
         ),
       ),
