@@ -9,7 +9,7 @@ import 'package:flutter_shop/resources/colors.dart';
 import 'package:flutter_shop/resources/svg_assets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:email_validator/email_validator.dart';
+
 import '../controllers/register_controller.dart';
 import '../resources/text_style.dart';
 import '../terms_page/terms_page.dart';
