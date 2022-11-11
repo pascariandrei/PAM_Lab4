@@ -10,6 +10,7 @@ import 'package:flutter_shop/resources/svg_assets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../controllers/login_controller.dart';
+import '../controllers/logout_controller.dart';
 import '../controllers/register_controller.dart';
 import '../controllers/api_client_controller.dart';
 import '../forgot_pswd/forgot_page.dart';
@@ -35,6 +36,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   void initState() {
     Get.put(LogController());
     Get.put(RegController());
+    Get.put(LogoutController());
     _passwordVisible = false;
     //super.initState();
   }
@@ -156,10 +158,23 @@ class _LoginWidgetState extends State<LoginWidget> {
             ButtonWidget(
                 text: "Log In",
                 onPress: () {
-                  logcontroller.loginUser();
-                  logcontroller.getUserData();
-                  _saveForm();
-                  logcontroller.isLoged ? _navigateToHomePage(context) : null;
+                  logcontroller.loginUser((bool success) {
+                    print('RawMaterialButton $success');
+                    if (success) {
+                      Navigator.pushAndRemoveUntil<dynamic>(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) => const MyHomePage(),
+                        ),
+                        (route) => false,
+                      );
+                    }
+                    //logcontroller.loginUser();
+                    _saveForm();
+                    logcontroller.isLoged
+                        ? _navigateToHomePage(context)
+                        : print("nu esti logat inca");
+                  });
                 }),
             const SizedBox(
               height: 44,
@@ -274,14 +289,15 @@ class _LoginWidgetState extends State<LoginWidget> {
   }
 
   void _navigateToRegisterPage(BuildContext context) {
-    print('_navigateToRegisterPage');
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const SignUpPage()));
   }
 
   void _navigateToHomePage(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const MyHomePage()));
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (context) => const MyHomePage()),
+      (route) => false,
+    );
   }
 
   void _saveForm() {

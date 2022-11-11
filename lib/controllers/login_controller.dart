@@ -12,12 +12,15 @@ import 'dart:async';
 
 import '../models/login_post.dart';
 import '../models/login_post.dart';
+import '../models/user_data.dart';
 
 class LogController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
   RxString accessToken = "".obs;
   RxString refreshToken = "".obs;
+  Rxn<UserData?> userdata = Rxn<UserData?>();
 
   bool isEmty = true;
   bool isEmail = false;
@@ -25,7 +28,7 @@ class LogController extends GetxController {
   String error = "";
   String message = "";
 
-  void loginUser() async {
+  void loginUser(Function(bool success) onLoggedIn) async {
     print('loginUserloginUser');
     if (emailController.text.contains(".") &&
         emailController.text.contains("@")) {
@@ -45,28 +48,33 @@ class LogController extends GetxController {
         "email": emailController.text,
         "password": passwordController.text,
       };
-      var response = await ApiClient().LogUser(userData);
+      var response = await ApiClient().logUser(userData);
       response.fold((left) {
         print("unsucces");
       }, (right) {
         accessToken.value = right.access.toString();
         refreshToken.value = right.refresh.toString();
+        isLoged = true;
       });
 
-      var res  = await ApiClient().GetUserData(accessToken.value as String?);
+      var res  = await ApiClient().getUserData(accessToken.value);
       res.fold((left) {
         print("unsucces");
       }, (right) {
+        onLoggedIn.call(true);
         print("Getuserdata ${right.fullName}");
+        //userdata = UserData(fullName: right.fullName, email: right.email);
+        userdata.value = right;
+        print("data user ${userdata.value?.email}");
+        print("data user ${userdata.value?.phoneNumber}");
       });
-      isLoged = true;
+
 
     }
   }
 
-  void getUserData() async{
 
-  }
+
 
 
 }

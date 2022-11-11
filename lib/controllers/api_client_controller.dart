@@ -12,7 +12,7 @@ class ApiClient {
   final Dio _dio = Dio();
   String tok = "";
 
-  Future<Either<RegistrationError, Registration>> RegUser(
+  Future<Either<RegistrationError, Registration>> regUser(
       Map<String, dynamic>? userData) async {
     try {
       Response response = await _dio.post(
@@ -32,7 +32,7 @@ class ApiClient {
     }
   }
 
-  Future<Either<LoginError, Login>> LogUser(
+  Future<Either<LoginError, Login>> logUser(
       Map<String, dynamic>? userData) async {
     try {
       Response response = await _dio.post(
@@ -51,7 +51,7 @@ class ApiClient {
     }
   }
 
-  Future<Either<UserDataError, UserData>> GetUserData(
+  Future<Either<UserDataError, UserData>> getUserData(
        String? accesToken) async {
     try {
       Response response = await _dio.get(

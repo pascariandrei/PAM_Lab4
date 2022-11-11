@@ -48,7 +48,7 @@ class RegController extends GetxController {
         "password": passwordController.text,
       };
 
-      var response = ApiClient().RegUser(userData);
+      var response = ApiClient().regUser(userData);
 
       response.fold((left) {
         print("unsucces");
